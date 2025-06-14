@@ -23,7 +23,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-gpuid', nargs=1, type=str, default='0') # python3 main.py -gpuid=0,1,2,3
 args = parser.parse_args()
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpuid[0]
-print(os.environ['CUDA_VISIBLE_DEVICES'])
+# print(os.environ['CUDA_VISIBLE_DEVICES'])
+print('CUDA_VISIBLE_DEVICES={}'.format(os.environ['CUDA_VISIBLE_DEVICES']))
 
 # book keeping namings and code
 from settings import base_architecture, img_size, prototype_shape, num_classes, \
@@ -103,7 +104,7 @@ ppnet = model.construct_PPNet(base_architecture=base_architecture,
                               add_on_layers_type=add_on_layers_type)
 #if prototype_activation_function == 'linear':
 #    ppnet.set_last_layer_incorrect_connection(incorrect_strength=0)
-ppnet = ppnet.cuda()
+# ppnet = ppnet.cuda()
 ppnet_multi = torch.nn.DataParallel(ppnet)
 class_specific = True
 
