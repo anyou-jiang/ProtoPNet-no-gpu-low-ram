@@ -1,5 +1,5 @@
 base_architecture = 'vgg19'
-img_size = 224
+img_size = 56# 224
 prototype_shape = (128, 8, 1, 1)
 # num_classes = 200
 # prototype_shape = (30, 512, 1, 1) # (2000, 128, 1, 1)
